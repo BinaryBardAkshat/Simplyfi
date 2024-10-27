@@ -35,21 +35,7 @@ Simplyfi is an advanced code analysis platform that transforms source code into 
 - Automated flowchart generation from code logic
 - Interactive code explanation through natural language processing
 - Customizable visualization parameters
-- Export functionality supporting multiple formats (SVG, PNG, PDF)
 
-## System Requirements
-
-### Minimum Requirements
-- Operating System: Windows 10+, macOS 10.14+, or Linux (kernel 4.19+)
-- CPU: Dual-core processor, 2.0 GHz
-- RAM: 4 GB
-- Storage: 500 MB available space
-- Python: Version 3.8 or higher
-
-### Recommended Specifications
-- CPU: Quad-core processor, 3.0 GHz
-- RAM: 8 GB
-- Storage: 1 GB available space
 
 ### Dependencies
 - Python packages are listed in `requirements.txt`

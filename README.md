@@ -174,26 +174,6 @@ logging:
    - Open web browser
    - Navigate to `http://localhost:8501`
 
-### Advanced Features
-
-#### Code Analysis
-```python
-# Example: Analyze Python code
-from simplyfi import CodeAnalyzer
-
-analyzer = CodeAnalyzer()
-result = analyzer.analyze("path/to/code.py")
-visualization = result.generate_visualization()
-```
-
-#### Custom Visualizations
-```python
-# Example: Configure visualization parameters
-visualization.set_theme("dark")
-visualization.set_layout("hierarchical")
-visualization.export("output.svg")
-```
-
 ## Development
 
 ### Development Setup

@@ -302,12 +302,7 @@ class Visualization:
   - Validate input format
   - Check memory usage
   - Verify browser compatibility
-
-### Security
-- Report security vulnerabilities to security@simplyfi.com
-- Follow responsible disclosure practices
-- See SECURITY.md for details
-
+  - 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

@@ -1,61 +1,333 @@
 # Simplyfi
-![My Project Logo](resources/logo.png)
-Welcome to **Simplyfi**! This is a Multi-Language Code Visualization Tool designed to help users visualize their code's syntax tree and flowchart. You can also chat with the code to get explanations of its functionality.
 
-## Contribute
+<div align="center">
 
-Thank you for considering contributing to **Simplyfi**!
+![Simplyfi Logo](resources/logo.png)
 
-### Instructions:
+A Multi-Language Code Analysis and Visualization Platform
 
-1. **Clone or Fork the Repository**:
-   - Clone the repository using:
-     ```bash
-     git clone https://github.com/binarybardakshat/simplyfi.git
-     ```
-   - Or fork the repository to your GitHub account.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/downloads/)
+
+</div>
+
+## Table of Contents
+- [Introduction](#introduction)
+- [System Requirements](#system-requirements)
+- [Technical Architecture](#technical-architecture)
+- [Installation Guide](#installation-guide)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Development](#development)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [Support](#support)
+
+## Introduction
+
+### Overview
+Simplyfi is an advanced code analysis platform that transforms source code into comprehensive visual representations. The platform employs sophisticated parsing algorithms to generate abstract syntax trees (ASTs) and flowcharts, facilitating code understanding and documentation.
+
+### Key Capabilities
+- Source code parsing and analysis across multiple programming languages
+- Abstract Syntax Tree (AST) visualization
+- Automated flowchart generation from code logic
+- Interactive code explanation through natural language processing
+- Customizable visualization parameters
+- Export functionality supporting multiple formats (SVG, PNG, PDF)
+
+## System Requirements
+
+### Minimum Requirements
+- Operating System: Windows 10+, macOS 10.14+, or Linux (kernel 4.19+)
+- CPU: Dual-core processor, 2.0 GHz
+- RAM: 4 GB
+- Storage: 500 MB available space
+- Python: Version 3.8 or higher
+
+### Recommended Specifications
+- CPU: Quad-core processor, 3.0 GHz
+- RAM: 8 GB
+- Storage: 1 GB available space
+
+### Dependencies
+- Python packages are listed in `requirements.txt`
+- Additional system libraries may be required based on your operating system
+
+## Technical Architecture
+
+Simplyfi implements a modular architecture designed for extensibility and maintainability:
+
+![Architecture Diagram](resources/work.png)
+
+### Core Components
+
+#### 1. Input Processing Module
+- Language detection and classification
+- Syntax validation
+- Code tokenization
+- Query parsing and intent recognition
+
+#### 2. Analysis Engine
+- Abstract Syntax Tree (AST) generation
+- Control flow analysis
+- Data flow tracking
+- Pattern recognition
+
+#### 3. Visualization Pipeline
+- Graph generation algorithms
+- Layout optimization
+- Style management
+- Interactive element handling
+
+#### 4. User Interface Layer
+- Web-based interface
+- Real-time updates
+- User input handling
+- Result presentation
+
+### Data Flow
+1. User input received through interface
+2. Code/query parsed and validated
+3. Analysis performed based on input type
+4. Visual representation generated
+5. Results displayed with interactive elements
+6. User feedback collected and processed
+
+## Installation Guide
+
+### Prerequisites
+Ensure your system meets the minimum requirements and has the following installed:
+- Python 3.8+
+- pip (Python package installer)
+- Git
+- virtualenv (recommended)
+
+### Installation Steps
+
+1. Clone the Repository
+   ```bash
+   git clone https://github.com/binarybardakshat/simplyfi.git
+   cd simplyfi
+   ```
+
+2. Environment Setup
+   ```bash
+   # Create virtual environment
+   python -m venv venv
+
+   # Activate virtual environment
+   # Windows
+   .\venv\Scripts\activate
+   # Unix/macOS
+   source venv/bin/activate
+   ```
+
+3. Install Dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Configure Environment
+   ```bash
+   # Create configuration directory
+   mkdir -p .streamlit
    
-2. **Add Your Features or Fix Bugs**:
-   - Feel free to add new features or fix any existing bugs. Your creativity is welcome!
+   # Create configuration file
+   touch .streamlit/secrets.toml
+   ```
 
-3. **Push Your Changes**:
-   - After making your changes, commit them and push the repository back to GitHub:
-     ```bash
-     git add .
-     git commit -m "Your descriptive message here"
-     git push origin main
-     ```
+5. Verify Installation
+   ```bash
+   python -m pytest tests/
+   ```
 
-4. **Create Issues**:
-   - If you have ideas for new features or encounter bugs that need attention, please create an issue in the repository. This helps keep track of tasks and enhancements.
+## Configuration
 
-### Contribution Guidelines:
-- **Creativity and Transformation**: There are no limits to your creativity or transformation ideas. Feel free to think outside the box and explore innovative solutions!
-- **Collaboration**: We believe in the power of collaboration. Discuss your ideas in the issue tracker, and work together with others to enhance Simplyfi.
+### API Configuration
+1. Obtain API Credentials
+   - Navigate to [Google MakerSuite](https://makersuite.google.com/app/apikey)
+   - Generate new API credentials
+   - Save the API key securely
 
-### How It Works:
-![How It Works](resources/work.png)
+2. Configure API Access
+   ```toml
+   # .streamlit/secrets.toml
+   [API_KEY]
+   API_KEY = "your_api_key_here"
+   ```
 
-### Get Your Gemini API Key:
-You can obtain your Gemini API key [here](https://makersuite.google.com/app/apikey).
+### Advanced Configuration
+Additional configuration options can be set in `config.yaml`:
+```yaml
+visualization:
+  default_theme: "light"
+  export_formats: ["svg", "png", "pdf"]
+  max_node_count: 1000
 
-### Save the API Key:
-After obtaining your API key, save it in the `/streamlit/secrets.toml` file as follows:
-```toml
-[API_KEY]
-API_KEY = "your_api_key_here"
+performance:
+  cache_size: "512MB"
+  worker_threads: 4
+  timeout: 30
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 ```
 
-## Tips for Effective Use
+## Usage
 
-- Ensure your code is properly formatted to avoid syntax errors in visualizations.
-- For any assistance, you can always check the documentation or contact me.
+### Basic Usage
+1. Start the Application
+   ```bash
+   streamlit run app.py
+   ```
 
-## Additional Notes
+2. Access the Interface
+   - Open web browser
+   - Navigate to `http://localhost:8501`
 
-- Replace the link for obtaining the Gemini API key and the image path with the actual links and paths you plan to use.
-- Ensure that the image (`work.png`) exists in the specified directory (`resources/`) before pushing the changes to the repository.
+### Advanced Features
 
-## Contact
+#### Code Analysis
+```python
+# Example: Analyze Python code
+from simplyfi import CodeAnalyzer
 
-For any queries or assistance, feel free to reach out to me at: **binarybardakshat@gmail.com**
+analyzer = CodeAnalyzer()
+result = analyzer.analyze("path/to/code.py")
+visualization = result.generate_visualization()
+```
+
+#### Custom Visualizations
+```python
+# Example: Configure visualization parameters
+visualization.set_theme("dark")
+visualization.set_layout("hierarchical")
+visualization.export("output.svg")
+```
+
+## Development
+
+### Development Setup
+1. Install Development Dependencies
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
+
+2. Configure Pre-commit Hooks
+   ```bash
+   pre-commit install
+   ```
+
+### Testing
+```bash
+# Run test suite
+pytest
+
+# Run with coverage
+pytest --cov=simplyfi tests/
+
+# Generate coverage report
+coverage html
+```
+
+### Code Style
+- Follow PEP 8 guidelines
+- Use type hints
+- Maintain test coverage above 90%
+- Document all public APIs
+
+## API Reference
+
+### Core Classes
+
+#### CodeAnalyzer
+```python
+class CodeAnalyzer:
+    """
+    Main class for code analysis operations.
+    """
+    def analyze(self, source: str) -> Analysis:
+        """
+        Analyze source code and return analysis results.
+        
+        Args:
+            source: Source code or file path
+            
+        Returns:
+            Analysis object containing results
+        """
+        pass
+```
+
+#### Visualization
+```python
+class Visualization:
+    """
+    Handles visualization generation and export.
+    """
+    def generate(self, analysis: Analysis) -> None:
+        """
+        Generate visualization from analysis results.
+        """
+        pass
+```
+
+## Contributing
+
+### Contribution Process
+1. Fork the repository
+2. Create a feature branch
+3. Implement changes
+4. Add/update tests
+5. Update documentation
+6. Submit pull request
+
+### Code Standards
+- Follow existing code style
+- Include unit tests
+- Update documentation
+- Maintain backward compatibility
+- Add type hints
+
+### Pull Request Guidelines
+1. Use descriptive commit messages
+2. Reference relevant issues
+3. Update CHANGELOG.md
+4. Ensure CI passes
+5. Obtain code review approval
+
+## Support
+
+### Official Channels
+- GitHub Issues: Bug reports and feature requests
+- Email Support: binarybardakshat@gmail.com
+- Documentation: [Project Wiki](https://github.com/binarybardakshat/simplyfi/wiki)
+
+### Common Issues
+- API Authentication
+  - Verify API key format
+  - Check network connectivity
+  - Confirm API service status
+
+- Visualization
+  - Validate input format
+  - Check memory usage
+  - Verify browser compatibility
+
+### Security
+- Report security vulnerabilities to security@simplyfi.com
+- Follow responsible disclosure practices
+- See SECURITY.md for details
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+Copyright © 2024 Simplyfi Project Contributors. All rights reserved.
+</div>
